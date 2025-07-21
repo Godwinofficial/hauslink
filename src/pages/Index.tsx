@@ -40,20 +40,20 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "John & Mary Thompson",
-      text: "EstateVerse made our home buying experience smooth and stress-free. Their team was professional, knowledgeable, and always available to answer our questions.",
+      name: "Mwangi & Grace Banda",
+      text: "Zellion made our home buying experience smooth and stress-free. Their team was professional, knowledgeable, and always available to answer our questions.",
       rating: 5,
-      location: "Downtown Condo Buyers"
+      location: "Kabulonga Apartment Buyers"
     },
     {
-      name: "David Rodriguez",
-      text: "Sold our family home in just 3 weeks! The marketing strategy was excellent and the communication throughout the process was outstanding.",
+      name: "Chisomo Mulenga",
+      text: "Sold our family home in Roma in just 2 weeks! The marketing strategy was excellent and the communication throughout the process was outstanding.",
       rating: 5,
-      location: "Suburban Home Seller"
+      location: "Roma Home Seller"
     },
     {
-      name: "Lisa Chen",
-      text: "As a first-time buyer, I was nervous about the process. The team at EstateVerse guided me every step of the way and helped me find the perfect starter home.",
+      name: "Pumulo Tembo",
+      text: "As a first-time buyer, I was nervous about the process. The team at Zellion guided me every step of the way and helped me find the perfect starter home in Chelston.",
       rating: 5,
       location: "First-Time Buyer"
     }
@@ -71,11 +71,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Why Choose EstateVerse?
+              Why Choose Zellion?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We combine cutting-edge technology with personalized service to deliver 
-              exceptional results for our clients.
+              We combine local expertise with modern technology to deliver 
+              exceptional results for our Zambian clients.
             </p>
           </div>
 
@@ -160,7 +160,7 @@ const Index = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Don't just take our word for it - hear from our satisfied clients 
-              about their experiences with EstateVerse.
+              about their experiences with Zellion.
             </p>
           </div>
 
@@ -199,7 +199,7 @@ const Index = () => {
             Ready to Find Your Dream Home?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied clients who have found their perfect properties with EstateVerse.
+            Join thousands of satisfied clients who have found their perfect properties with Zellion.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="luxury" size="lg">

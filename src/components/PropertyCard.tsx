@@ -27,11 +27,7 @@ const PropertyCard = ({ property, onViewDetails }: PropertyCardProps) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-    }).format(price);
+    return `ZMW ${price.toLocaleString()}`;
   };
 
   const getStatusColor = (status: string) => {
@@ -149,8 +145,9 @@ const PropertyCard = ({ property, onViewDetails }: PropertyCardProps) => {
           onClick={() => onViewDetails?.(property)}
           variant="outline"
           className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300"
+          asChild
         >
-          View Details
+          <a href={`/properties/${property.id}`}>View Details</a>
         </Button>
       </div>
     </div>

@@ -25,7 +25,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
               <Home className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">EstateVerse</span>
+            <span className="text-xl font-bold text-foreground">Zellion</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -48,8 +48,8 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm">
-              Sign In
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/signin">Sign In</Link>
             </Button>
             <Button variant="hero" size="sm">
               List Property
@@ -87,8 +87,8 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-3 pt-4 space-y-2">
-                <Button variant="outline" size="sm" className="w-full">
-                  Sign In
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Link to="/signin">Sign In</Link>
                 </Button>
                 <Button variant="hero" size="sm" className="w-full">
                   List Property

@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 
 const FeaturedProperties = () => {
   const handleViewDetails = (property: Property) => {
-    console.log("View details for:", property.id);
-    // Navigate to property details page
+    window.location.href = `/properties/${property.id}`;
   };
 
   return (

@@ -38,12 +38,13 @@ const HeroSection = () => {
             <span className="bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent">
               {" "}Dream Home
             </span>
+            <span className="text-3xl md:text-4xl block mt-2">in Zambia</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
             Discover luxury properties and exceptional living experiences
             <br className="hidden md:block" />
-            in the most desirable locations
+            across Lusaka and beyond
           </p>
 
           {/* Search Form */}
@@ -105,10 +106,10 @@ const HeroSection = () => {
                     <SelectValue placeholder="Select range" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="0-300k">$0 - $300K</SelectItem>
-                    <SelectItem value="300k-600k">$300K - $600K</SelectItem>
-                    <SelectItem value="600k-1m">$600K - $1M</SelectItem>
-                    <SelectItem value="1m+">$1M+</SelectItem>
+                    <SelectItem value="0-1m">ZMW 0 - 1M</SelectItem>
+                    <SelectItem value="1m-3m">ZMW 1M - 3M</SelectItem>
+                    <SelectItem value="3m-5m">ZMW 3M - 5M</SelectItem>
+                    <SelectItem value="5m+">ZMW 5M+</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
