@@ -18,7 +18,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden py-20 md:py-0">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -33,17 +33,16 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight">
             Find Your
             <span className="bg-gradient-to-r from-secondary to-yellow-400 bg-clip-text text-transparent">
               {" "}Dream Home
             </span>
-            <span className="text-3xl md:text-4xl block mt-2">in Zambia</span>
+            <span className="text-xl sm:text-3xl md:text-4xl block mt-2">in Zambia</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl text-white/90 mb-4 md:mb-8 leading-relaxed px-2 sm:px-4">
             Discover luxury properties and exceptional living experiences
-            <br className="hidden md:block" />
             across Lusaka and beyond
           </p>
 

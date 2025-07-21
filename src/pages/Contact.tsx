@@ -71,7 +71,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@estateverse.com", "support@estateverse.com"],
+      details: ["info@hauslink.com", "support@hauslink.com"],
       description: "We'll respond within 24 hours"
     },
     {

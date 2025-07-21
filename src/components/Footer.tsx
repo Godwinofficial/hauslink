@@ -26,7 +26,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-secondary to-yellow-400 rounded-lg flex items-center justify-center">
                 <Home className="h-5 w-5 text-black" />
               </div>
-              <span className="text-xl font-bold">EstateVerse</span>
+              <span className="text-xl font-bold">HausLink</span>
             </div>
             
             <p className="text-background/80 leading-relaxed">
@@ -113,7 +113,7 @@ const Footer = () => {
               
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-secondary" />
-                <span className="text-background/80">info@estateverse.com</span>
+                <span className="text-background/80">info@hauslink.com</span>
               </div>
             </div>
 
@@ -140,7 +140,7 @@ const Footer = () => {
         <div className="border-t border-background/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-background/80 text-sm">
-              © {currentYear} EstateVerse. All rights reserved.
+              © {currentYear} HausLink. All rights reserved.
             </div>
             
             <div className="flex space-x-6 mt-4 md:mt-0">

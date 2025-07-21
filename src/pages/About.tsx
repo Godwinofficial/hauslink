@@ -73,7 +73,7 @@ const About = () => {
       <section className="hero-gradient text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About EstateVerse
+            About HausLink
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             We're passionate about connecting people with their perfect homes 
@@ -112,7 +112,7 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Founded in 2014, EstateVerse began with a simple mission: to revolutionize 
+                Founded in 2024, HausLink began with a simple mission: to revolutionize 
                 the real estate experience by combining cutting-edge technology with 
                 personalized service.
               </p>

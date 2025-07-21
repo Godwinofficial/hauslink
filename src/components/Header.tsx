@@ -25,7 +25,7 @@ const Header = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-lg flex items-center justify-center">
               <Home className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-foreground">Zellion</span>
+            <span className="text-xl font-bold text-foreground">HausLink</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,8 +51,8 @@ const Header = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/signin">Sign In</Link>
             </Button>
-            <Button variant="hero" size="sm">
-              List Property
+            <Button variant="hero" size="sm" asChild>
+              <Link to="/lister/login">List Property</Link>
             </Button>
           </div>
 
@@ -90,8 +90,8 @@ const Header = () => {
                 <Button variant="outline" size="sm" className="w-full" asChild>
                   <Link to="/signin">Sign In</Link>
                 </Button>
-                <Button variant="hero" size="sm" className="w-full">
-                  List Property
+                <Button variant="hero" size="sm" className="w-full" asChild>
+                  <Link to="/lister/login">List Property</Link>
                 </Button>
               </div>
             </div>

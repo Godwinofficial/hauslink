@@ -52,7 +52,7 @@ export const properties: Property[] = [
     agent: {
       name: "Chama Mwansa",
       phone: "+260 97 123 4567",
-      email: "chama@zellion.zm"
+      email: "chama@hauslink .zm"
     }
   },
   {
@@ -83,7 +83,7 @@ export const properties: Property[] = [
     agent: {
       name: "Mutinta Kabwe",
       phone: "+260 96 234 5678",
-      email: "mutinta@zellion.zm"
+      email: "mutinta@hauslink.zm"
     }
   },
   {
@@ -114,7 +114,7 @@ export const properties: Property[] = [
     agent: {
       name: "Bwalya Musonda",
       phone: "+260 95 345 6789",
-      email: "bwalya@zellion.zm"
+      email: "bwalya@hauslink.zm"
     }
   },
   {
@@ -145,7 +145,7 @@ export const properties: Property[] = [
     agent: {
       name: "Kunda Tembo",
       phone: "+260 94 456 7890",
-      email: "kunda@zellion.zm"
+      email: "kunda@hauslink.zm"
     }
   },
   {
@@ -176,7 +176,7 @@ export const properties: Property[] = [
     agent: {
       name: "Pumulo Banda",
       phone: "+260 93 567 8901",
-      email: "pumulo@zellion.zm"
+      email: "pumulo@hauslink.zm"
     }
   },
   {
@@ -207,7 +207,7 @@ export const properties: Property[] = [
     agent: {
       name: "Chisomo Phiri",
       phone: "+260 97 678 9012",
-      email: "chisomo@zellion.zm"
+      email: "chisomo@hauslink.zm"
     }
   }
 ];

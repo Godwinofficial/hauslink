@@ -1,10 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, 
   Heart, 
@@ -21,27 +20,72 @@ import {
   Car,
   Wifi,
   Shield,
-  Zap
+  Zap,
+  Play
 } from "lucide-react";
 import { properties } from "@/data/properties";
 
 const PropertyDetail = () => {
   const { id } = useParams();
   const [isFavorited, setIsFavorited] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [direction, setDirection] = useState(0);
   
   const property = properties.find(p => p.id === id);
+
+  // Mock additional images for the property
+  const propertyImages = [
+    property?.image || "",
+    "/src/assets/property-2.jpg",
+    "/src/assets/property-3.jpg",
+    "/src/assets/property-1.jpg",
+    "/src/assets/property-2.jpg",
+  ].filter(Boolean);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      setDirection(1);
+      setCurrentImageIndex((prev) => 
+        prev === propertyImages.length - 1 ? 0 : prev + 1
+      );
+    }
+
+    if (isRightSwipe) {
+      setDirection(-1);
+      setCurrentImageIndex((prev) => 
+        prev === 0 ? propertyImages.length - 1 : prev - 1
+      );
+    }
+
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
 
   if (!property) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-2xl font-bold text-foreground mb-4">Property Not Found</h1>
           <Link to="/properties">
             <Button>Back to Properties</Button>
           </Link>
         </div>
-        <Footer />
       </div>
     );
   }
@@ -76,55 +120,121 @@ const PropertyDetail = () => {
     }
   };
 
+  const slideVariants = {
+    enter: {
+      opacity: 0,
+      scale: 1.1
+    },
+    center: {
+      zIndex: 1,
+      opacity: 1,
+      scale: 1
+    },
+    exit: {
+      zIndex: 0,
+      opacity: 0,
+      scale: 0.9
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Header />
       
       <main className="pt-16">
         {/* Hero Image Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
-          <img
-            src={property.image}
-            alt={property.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/20" />
-          
-          {/* Back Button */}
-          <Link 
-            to="/properties"
-            className="absolute top-6 left-6 bg-white/90 hover:bg-white rounded-full p-2 transition-colors"
-          >
-            <ArrowLeft className="h-5 w-5" />
-          </Link>
-
-          {/* Action Buttons */}
-          <div className="absolute top-6 right-6 flex gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={`bg-white/90 hover:bg-white transition-colors ${
-                isFavorited ? "text-red-500" : "text-muted-foreground hover:text-red-500"
-              }`}
-              onClick={() => setIsFavorited(!isFavorited)}
-            >
-              <Heart className={`h-5 w-5 ${isFavorited ? "fill-current" : ""}`} />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="bg-white/90 hover:bg-white transition-colors"
-            >
-              <Share2 className="h-5 w-5" />
-            </Button>
+        <div 
+          className="relative h-96 md:h-[500px] overflow-hidden bg-background"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Image Slider */}
+          <div className="absolute inset-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImageIndex}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  opacity: { duration: 0.3 },
+                  scale: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
+                }}
+                className="absolute inset-0"
+              >
+                <motion.img
+                  src={propertyImages[currentImageIndex]}
+                  alt={property.title}
+                  className="w-full h-full object-cover"
+                  layoutId={`property-image-${currentImageIndex}`}
+                />
+                <div className="absolute inset-0 bg-black/20" />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          {/* Status Badge */}
-          <Badge 
-            className={`absolute bottom-6 left-6 ${getStatusColor(property.status)} text-white border-0 text-lg px-4 py-2`}
-          >
-            {getStatusText(property.status)}
-          </Badge>
+          {/* UI Layer */}
+          <div className="relative z-10">
+            {/* Back Button */}
+            <Link 
+              to="/properties"
+              className="absolute top-6 left-6 bg-white/90 hover:bg-white rounded-full p-2 transition-colors"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </Link>
+
+            {/* Action Buttons */}
+            <div className="absolute top-6 right-6 flex gap-2">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="bg-white/90 hover:bg-white text-muted-foreground hover:text-red-500 transition-colors"
+                onClick={() => setIsFavorited(!isFavorited)}
+              >
+                <Heart className={`h-5 w-5 ${isFavorited ? "fill-red-500 text-red-500" : ""}`} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="bg-white/90 hover:bg-white text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Play className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="bg-white/90 hover:bg-white text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Share2 className="h-5 w-5" />
+              </Button>
+            </div>
+
+            {/* Image Navigation Dots */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+              {propertyImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > currentImageIndex ? 1 : -1);
+                    setCurrentImageIndex(index);
+                  }}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex 
+                      ? "bg-white scale-100" 
+                      : "bg-white/50 scale-90 hover:scale-100"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Status Badge */}
+            <Badge 
+              className={`absolute bottom-6 left-6 ${getStatusColor(property.status)} text-white border-0 text-sm px-3 py-1`}
+            >
+              {getStatusText(property.status)}
+            </Badge>
+          </div>
         </div>
 
         {/* Property Details */}
@@ -138,22 +248,22 @@ const PropertyDetail = () => {
                 {/* Property Header */}
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="text-3xl font-bold text-primary">
+                    <div className="text-xl font-bold text-primary">
                       {formatPrice(property.price)}
-                      {property.status === "for-rent" && <span className="text-lg text-muted-foreground">/month</span>}
+                      {property.status === "for-rent" && <span className="text-sm text-muted-foreground">/month</span>}
                     </div>
                     <Badge variant="outline" className="text-sm px-3 py-1">
                       {property.type}
                     </Badge>
                   </div>
                   
-                  <h1 className="text-3xl font-bold text-foreground mb-3">
+                  <h1 className="text-2xl font-bold text-foreground mb-3">
                     {property.title}
                   </h1>
                   
                   <div className="flex items-center text-muted-foreground mb-6">
                     <MapPin className="h-5 w-5 mr-2" />
-                    <span className="text-lg">{property.location}</span>
+                    <span className="text-base">{property.location}</span>
                   </div>
 
                   {/* Property Stats */}
@@ -258,8 +368,6 @@ const PropertyDetail = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };

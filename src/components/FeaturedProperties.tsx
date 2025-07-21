@@ -3,11 +3,38 @@ import PropertyCard from "./PropertyCard";
 import { featuredProperties, type Property } from "@/data/properties";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const FeaturedProperties = () => {
   const handleViewDetails = (property: Property) => {
     window.location.href = `/properties/${property.id}`;
   };
+
+  useEffect(() => {
+    const elements = document.querySelectorAll('.reveal-animation');
+    
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section className="py-20 bg-muted/30">
