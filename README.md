@@ -1,73 +1,138 @@
-# Welcome to your Lovable project
+# HausLink
 
-## Project info
+### Property Discovery and Housing Platform
 
-**URL**: https://lovable.dev/projects/25c2e9f6-bceb-473a-8806-b86f1bf82fa0
+HausLink is a digital property platform designed to make it easier for users to discover, explore, and connect with available properties.
 
-## How can I edit this code?
+**Live Platform:** https://godwinofficial.github.io/hauslink/
 
-There are several ways of editing your application.
+> **Repository Type:** Showcase
+> This repository presents the HausLink product, its features, user experience, technology stack, and development work. The showcase is intended for portfolio and product demonstration purposes.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/25c2e9f6-bceb-473a-8806-b86f1bf82fa0) and start prompting.
+## About the Project
 
-Changes made via Lovable will be committed automatically to this repo.
+HausLink was developed as a digital solution for simplifying property discovery and connecting users with housing opportunities through a modern web experience.
 
-**Use your preferred IDE**
+The platform focuses on presenting property information in a simple and accessible way while providing users with an intuitive interface for exploring available properties.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Core Features
 
-Follow these steps:
+### Property Discovery
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Users can browse available properties and explore relevant property information.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Property Listings
 
-# Step 3: Install the necessary dependencies.
-npm i
+Property listings can present important information such as:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+* Property images
+* Property type
+* Location
+* Pricing
+* Description
+* Property features
+
+### Property Search
+
+Users can explore properties based on relevant criteria and find listings that match their requirements.
+
+### Property Details
+
+Each property provides a dedicated view containing additional information and visual details.
+
+### Responsive Experience
+
+The platform is designed to provide a consistent experience across desktop and mobile devices.
+
+---
+
+## Screenshots
+
+### Property Discovery
+
+<table>
+<tr>
+<td><img src="YOUR_IMAGE_URL" width="280"></td>
+<td><img src="YOUR_IMAGE_URL" width="280"></td>
+<td><img src="YOUR_IMAGE_URL" width="280"></td>
+</tr>
+</table>
+
+---
+
+## Technology Stack
+
+The project is developed using modern web technologies.
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+
+### Development
+
+* Git
+* GitHub
+
+### Deployment
+
+* GitHub Pages
+
+---
+
+## Project Architecture
+
+```text
+HausLink
+│
+├── Property Discovery
+├── Property Listings
+├── Property Search
+├── Property Details
+└── Responsive User Interface
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Product Direction
 
-**Use GitHub Codespaces**
+HausLink explores how digital platforms can simplify property discovery and improve the way users interact with housing information.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Future development may include additional property management features, advanced search, user accounts, property submissions, location based discovery, and communication between property seekers and property providers.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Project Status
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Status:** Active Development
 
-## How can I deploy this project?
+HausLink is a personal software project developed by **Godwin Banda** as part of an ongoing exploration of digital products and practical technology solutions.
 
-Simply open [Lovable](https://lovable.dev/projects/25c2e9f6-bceb-473a-8806-b86f1bf82fa0) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Developer
 
-Yes, you can!
+**Godwin Banda**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Software Developer
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Building digital products and technology solutions.
+
+---
+
+## Repository Notice
+
+This repository is provided for **portfolio and showcase purposes**.
+
+The HausLink source code, design, content, graphics, and other project materials are the intellectual property of **Godwin Banda**, unless otherwise stated.
+
+The project may be viewed and referenced for educational and portfolio purposes. Copying, redistributing, modifying, or using the project or substantial portions of its code, design, or assets for commercial or public use is not permitted without prior written permission.
+
+Please do not reproduce or republish the project as your own work.
+
+For permission to use any part of the project, please contact the developer.
